@@ -22,9 +22,16 @@ public class PinControl : MonoBehaviour {
         {
             transform.SetParent(col.transform);
 
-            col.GetComponent<Rotator>().speed *= -1;
+            // Invert Rotation
+            //col.GetComponent<Rotator>().speed *= -1;
 
             isPinned = true;
+        }
+        else if(tag == "Pin")
+        {
+            // End Game
+            // Singleton (GameManager)
+            FindObjectOfType<GameManager>().endGame();
         }
     }
 }
